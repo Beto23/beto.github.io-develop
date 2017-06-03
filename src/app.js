@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+//pages
+import Home from './pages/Home';
+
 class App extends Component {
     render() {
         return(
            <div>
-               Welcome to ReactJs
+               <Home />
            </div>
         )
     }
