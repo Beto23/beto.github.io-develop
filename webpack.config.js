@@ -37,7 +37,7 @@ const rules = [
     },
     {
         test: /\.(png|gif|jpe?g|svg|ico)$/,
-        use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]',
+        use: 'url-loader?limit=20480&name=images/[name]-[hash].[ext]',
     },
     {
         test: /\.(svg|woff|woff2|ttf|eot)$/,
@@ -74,14 +74,14 @@ if(isProduction) {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: 'css-loader!postcss-loader!sass-loader',
+        use: 'css-loader!sass-loader',
+        publicPath: '/dist'
       }),
     }
   );
 } else {
     // Development plugins
     plugins.push(
-        new webpack.HotModuleReplacementPlugin(),
         new DashboardPlugin(),
         new OpenBrowserPlugin({ url: 'http://localhost:9000' })
     );
@@ -91,7 +91,7 @@ if(isProduction) {
         {
             test: /\.scss$/,
             exclude: /node_modules/,
-            use: ['style-loader', 'css-loader', 'sass-loader?sourceMap', 'postcss-loader']
+            use: ['style-loader', 'css-loader', 'sass-loader']
         }
     )
 }
