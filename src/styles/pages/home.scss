@@ -6,21 +6,36 @@
     background-position: center center;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: table;
     .home-container {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 15px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.34);
+        margin-bottom: 1em;
         .home-container-img {
-            height: 11em;
-            width: 40em;
-            margin: 0 auto;
+            height: 12em;
         }
         .home-container-text {
-            width: 25em;
+            max-width: 25em;
             margin: 0 auto;
             font-size: 1.2rem;
             color: white;
             text-align: center;
+        }
+    }
+}
+
+@media screen and (min-width: 670px) {
+    .home{
+        .home-container{
+            // background-color: transparent;
+            .home-container-img{
+                height: 8em;
+                width: 40em;
+            }
         }
     }
 }
