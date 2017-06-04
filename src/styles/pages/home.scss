@@ -1,0 +1,26 @@
+
+.home {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .home-container {
+        .home-container-img {
+            height: 11em;
+            width: 40em;
+            margin: 0 auto;
+        }
+        .home-container-text {
+            width: 25em;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: white;
+            text-align: center;
+        }
+    }
+}
