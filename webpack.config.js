@@ -109,7 +109,11 @@ module.exports = {
         rules
     },
     resolve: {
-        extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx']
+        extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
+        alias: {
+            stylesComponents: path.resolve(__dirname, 'src/styles/components/'),
+            stylesPages: path.resolve(__dirname, 'src/styles/pages/'),
+        }
     },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
