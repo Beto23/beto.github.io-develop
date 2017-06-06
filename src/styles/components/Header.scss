@@ -1,4 +1,30 @@
 .header {
-    background: red;
-    color: green;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: transparent;
+    height: 3em;
+    .header-container{
+        background: #191c1f;
+        height: 0;
+        transition: height ease-out .3s;
+    }
+    .header-container__show {
+        height: 150px;
+    }
+    .header-button {
+        position: absolute;
+        border: 0;
+        bottom: 0;
+        right: 35px;
+        background: none;
+        cursor: pointer;
+        i {
+            color: white;
+            font-size: 2em;
+        }
+    }
+    .header-button:focus{
+        outline: 0;
+    }
 }
