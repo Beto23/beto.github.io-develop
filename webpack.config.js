@@ -30,7 +30,7 @@ const rules = [
         use: {
             loader: 'babel-loader',
             query: {
-                presets: ['es2015','es2016', 'es2017', 'react'],
+                presets: ['stage-2','react'],
                 plugins: ['transform-es2015-modules-commonjs']
             }
         }
