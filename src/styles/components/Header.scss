@@ -5,12 +5,12 @@
     background: transparent;
     height: 3em;
     .header-container{
-        background: #191c1f;
+        background: white;
         height: 0;
         transition: height ease-out .3s;
     }
     .header-container__show {
-        height: 150px;
+        height: 77vh;
     }
     .header-button {
         position: absolute;
@@ -20,11 +20,18 @@
         background: none;
         cursor: pointer;
         i {
-            color: white;
             font-size: 2em;
         }
     }
     .header-button:focus{
         outline: 0;
     }
+}
+
+.icon-close {
+    color: black;
+}
+
+.icon-menu {
+    color: white;
 }
