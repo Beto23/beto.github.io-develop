@@ -98,7 +98,7 @@ if(isProduction) {
 
 module.exports = {
     devtool: isProduction ? false : 'source-map',
-    entry: './src/app.js',
+    entry: './src/index.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
