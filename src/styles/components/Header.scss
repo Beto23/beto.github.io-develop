@@ -11,6 +11,13 @@
     }
     .header-container__show {
         height: 77vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ul>li a {
+            cursor: pointer;
+            color: #564242
+        }
     }
     .header-button {
         position: absolute;

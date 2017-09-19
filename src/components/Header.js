@@ -24,7 +24,9 @@ class Header extends Component {
                     <i className={(isOpen ? 'icon-close': 'icon-menu')}></i>
                 </button>
                 <div className={"header-container " + (isOpen ? 'header-container__show': '') }>
-                    {/* poner display:none al contenido */}
+                    <ul style={isOpen ? {display: 'flex'} : {display: 'none'}}>
+                        <li><a>Portafólio</a></li>
+                    </ul>
                 </div>
             </header>
         )

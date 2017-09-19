@@ -21,7 +21,7 @@ class Home extends Component {
                     {/*<img className="home-container-img" src={nameCel} alt=""/>*/}
                     <p className="home-container-text">I'm a Front-End web developer
                         based in Saltillo Coahuila, Mexico.
-                      I like to work with the latest tools and methodologies by keeping up
+                        I like to work with the latest tools and methodologies by keeping up
                         to date with current trends.
                     </p>
                     <FooterHome />

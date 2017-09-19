@@ -32,9 +32,9 @@ class FooterHome extends Component {
             <footer className="footerHome">
                 <ul className="footerHome__links">
                     {
-                        this.state.links.map(link => {
+                        this.state.links.map((link, key) => {
                             return(
-                                <li className="footerHome__link">
+                                <li key={key} className="footerHome__link">
                                     <a href={link.url} target="_blank">
                                         <i className={link.icon}></i>
                                     </a>
