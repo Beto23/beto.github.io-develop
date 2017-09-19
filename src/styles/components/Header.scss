@@ -2,6 +2,7 @@
     position: fixed;
     left: 0;
     right: 0;
+    top: 0;
     background: transparent;
     height: 3em;
     .header-container{
@@ -10,13 +11,18 @@
         transition: height ease-out .3s;
     }
     .header-container__show {
-        height: 77vh;
+        height: 30vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        ul>li a {
-            cursor: pointer;
-            color: #564242
+        ul {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            li>a {
+                cursor: pointer;
+                color: #564242
+            }
         }
     }
     .header-button {

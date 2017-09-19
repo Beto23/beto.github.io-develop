@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import '../styles/components/Header.scss';
 
 class Header extends Component {
@@ -25,13 +27,27 @@ class Header extends Component {
                 </button>
                 <div className={"header-container " + (isOpen ? 'header-container__show': '') }>
                     <ul style={isOpen ? {display: 'flex'} : {display: 'none'}}>
-                        <li><a>Portafólio</a></li>
+                        {
+                            this.props.items.map((item, key) => {
+                                return(
+                                    <li key={key}>
+                                        <Link 
+                                            onClick={() => this.setState({isOpen: false})}
+                                            to={item.path}>{item.title}</Link>
+                                    </li>
+                                )
+                            } )
+                        }
                     </ul>
                 </div>
             </header>
         )
     }
 
+}
+
+Header.propTypes = {
+    items: PropTypes.array.isRequired
 }
 
 export default Header;
