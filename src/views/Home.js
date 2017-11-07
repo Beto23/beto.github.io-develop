@@ -11,8 +11,8 @@ class Home extends Component {
 
     render(){
         return(
-            <div className="home" style={{backgroundImage: 'url(' + fondo + ')'}}>
-                <div className="home-container">
+            <section className="home" style={{backgroundImage: 'url(' + fondo + ')'}}>
+                <article className="home-container">
                     <picture>
                         <source srcSet={welcomeLarge} media="(min-width: 670px)" />
                         <source srcSet={welcomeDefault}/>
@@ -25,8 +25,8 @@ class Home extends Component {
                         to date with current trends.
                     </p>
                     <FooterHome />
-                </div>
-            </div>
+                </article>
+            </section>
         )
     }
 
