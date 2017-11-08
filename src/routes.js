@@ -6,13 +6,15 @@ import { Route, Switch } from 'react-router-dom';
 import App from './components/App';
 import Home from './views/Home';
 import Contact from './views/Contact';
-import Portafolio from './views/Portafolio'
+import Portafolio from './views/Portafolio';
+import FavoriteAlbums from './views/FavoriteAlbums';
 
 const AppRoutes = () =>
   <App>
     <Switch>
       <Route exact path="/portafolio" component={Portafolio} />
       <Route exact path="/contact" component={Contact} />
+      <Route exact path="/FavoriteAlbums" component={FavoriteAlbums} />
       <Route exact path="/" component={Home} />
     </Switch>
   </App>;

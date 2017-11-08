@@ -4,7 +4,7 @@ export default [
         path: '/'
     },
     {
-        title: 'Portafolio',
-        path: '/portafolio'
+        title: 'music',
+        path: '/FavoriteAlbums'
     }
 ]
