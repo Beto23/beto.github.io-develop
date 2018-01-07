@@ -1,21 +1,30 @@
-const webpack = require('webpack'); //to access built-in plugins
-const path = require('path');
+// We are using node's native package 'path' https://nodejs.org/api/path.html
+const path      = require('path');
+const webpack   = require('webpack'); //to access built-in plugins
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+// Plugins
+const HtmlWebpackPlugin     = require('html-webpack-plugin');
+const DashboardPlugin       = require('webpack-dashboard/plugin');
+const OpenBrowserPlugin     = require('open-browser-webpack-plugin');
+const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 
+// NODE ENV
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProduction = nodeEnv === 'production';
 
-const sourcePath = path.join(__dirname, './src');
 
-//common plugins
+// Constant with our paths
+const paths = {
+    DIST: path.resolve(__dirname, 'dist'),
+    APP: path.resolve(__dirname, 'src/'),
+};
+
+// common plugins
 const plugins = [
+    // Simplifies creation of HTML files to serve your webpack bundles
     new HtmlWebpackPlugin({
         hash: true,
-        template: path.join(sourcePath, 'index.html'),
+        template: path.join(paths.APP, 'index.html'),
         filename: 'index.html',
     }),
     new webpack.NamedModulesPlugin(),
@@ -25,19 +34,20 @@ const plugins = [
 //common rules
 const rules = [
     {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            query: {
-                presets: ['stage-2','react'],
-                plugins: ['transform-es2015-modules-commonjs']
-            }
-        }
+        use: 'awesome-typescript-loader?{tsconfig: "tsconfig.json"}' // falta de instalar
     },
     {
         test: /\.(png|gif|jpe?g|svg|ico)$/,
-        use: 'url-loader?limit=20480&name=images/[name]-[hash].[ext]',
+        use: [
+            {
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]'
+                }
+            }
+        ]
     },
     {
         test: /\.(svg|woff|woff2|ttf|eot)$/,
@@ -46,39 +56,40 @@ const rules = [
     }
 ]
 
-if(isProduction) {
-  // Production plugins
-  plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-      },
-      output: {
-        comments: false,
-      },
-    }),
-    new ExtractTextPlugin('style-[hash].css')
-  );
-  //Production Rules
-  rules.push(
-    {
-      test: /\.scss$/,
-      loader: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: 'css-loader!sass-loader',
-        publicPath: '/dist'
-      }),
-    }
-  );
+if (isProduction) {
+    // Production plugins
+    plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+                screw_ie8: true,
+                conditionals: true,
+                unused: true,
+                comparisons: true,
+                sequences: true,
+                dead_code: true,
+                evaluate: true,
+                if_return: true,
+                join_vars: true,
+            },
+            output: {
+                comments: false,
+            },
+        }),
+        new ExtractTextPlugin('style-[hash].css')
+    );
+
+    //Production Rules
+    rules.push(
+        {
+            test: /\.scss$/,
+            loader: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: 'css-loader!sass-loader',
+                publicPath: '/dist'
+            }),
+        }
+    );
 } else {
     // Development plugins
     plugins.push(
@@ -96,20 +107,20 @@ if(isProduction) {
     )
 }
 
+// Webpack configuration
 module.exports = {
     devtool: isProduction ? false : 'source-map',
-    entry: './src/index.js',
+    entry: path.join(paths.APP, 'app.tsx'),
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: paths.DIST,
+        filename: 'app.bundle.js'
     },
     plugins,
-    devtool: "source-map",
     module: {
         rules
     },
     resolve: {
-        extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
+        extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', ".ts", ".tsx", ".js", ".json"],
         alias: {
             stylesComponents: path.resolve(__dirname, 'src/styles/components/'),
             stylesPages: path.resolve(__dirname, 'src/styles/pages/'),

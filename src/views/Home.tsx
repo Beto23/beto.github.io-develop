@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
 import 'stylesPages/home.scss';
-import fondo from './../assets/images/pexels3.jpeg';
-import welcomeLarge from './../assets/images/welcome3.png';
-import welcomeDefault from '../assets/images/betocel.png';
+import * as fondo from './../assets/images/pexels3.jpeg';
+import * as welcomeLarge from './../assets/images/welcome3.png';
+import * as welcomeDefault from '../assets/images/betocel.png';
 
 import FooterHome from '../components/FooterHome';
 
-class Home extends Component {
+class Home extends React.Component {
 
     render(){
         return(
@@ -24,7 +24,7 @@ class Home extends Component {
                         I like to work with the latest tools and methodologies by keeping up
                         to date with current trends.
                     </p>
-                    <FooterHome />
+                    {<FooterHome />}
                 </article>
             </section>
         )

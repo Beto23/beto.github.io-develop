@@ -1,11 +1,21 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
 import 'stylesComponents/footerHome.scss';
 
-class FooterHome extends Component {
+interface Links {
+    icon: string,
+    url: string
+}
 
-    constructor() {
-        super()
+interface State {
+    links: Array<Links>
+}
+
+class FooterHome extends React.Component {
+    state : State;
+
+    constructor(props: any) {
+        super(props)
         this.state = {
             links: [
                 {

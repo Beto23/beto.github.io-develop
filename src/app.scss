@@ -1,7 +1,10 @@
-@import "~normalize.css";
-@import "~flexboxgrid";
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 @import './assets/fonts/beto/beto.css';
+
+* {
+    margin: 0;
+    padding: 0;
+}
 
 body {
     font-family: 'Ubuntu', sans-serif;
