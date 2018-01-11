@@ -17,7 +17,6 @@ class Home extends React.Component<Props> {
     container: any;
 
     componentWillReceiveProps(nextProps: Props) {
-        console.log('componentWillReceiveProps', nextProps);
         const el = this.container;
         if(nextProps.isHidden === false) {
             TweenLite.to(el, 2, {x:"0%", ease: "Power3.easeInOut"});
