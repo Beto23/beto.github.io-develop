@@ -4,17 +4,17 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-    width: 100vw;
     height: 100vh;
-    display: table;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateX(100%);
+    //display: none;
     .home-container {
-        display: table-cell;
-        vertical-align: middle;
-        padding: 0 15px;
-        margin: 0 auto;
-        text-align: center;
-        background-color: rgba(0, 0, 0, 0.34);
-        margin-bottom: 1em;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         .home-container-img {
             height: 12em;
         }

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { TweenLite } from 'gsap';
 
 import 'stylesPages/home.scss';
 import * as fondo from './../assets/images/pexels3.jpeg';
@@ -7,11 +8,29 @@ import * as welcomeDefault from '../assets/images/betocel.png';
 
 import FooterHome from '../components/FooterHome';
 
-class Home extends React.Component {
+interface Props {
+    isHidden : boolean
+}
+
+class Home extends React.Component<Props> {
+
+    container: any;
+
+    componentWillReceiveProps(nextProps: Props) {
+        console.log('componentWillReceiveProps', nextProps);
+        const el = this.container;
+        if(nextProps.isHidden === false) {
+            TweenLite.to(el, 2, {x:"0%", ease: "Power3.easeInOut"});
+        }
+    }
 
     render(){
+        let { isHidden } = this.props;
         return(
-            <section className="home" style={{backgroundImage: 'url(' + fondo + ')'}}>
+            <section
+                className="home"
+                ref={c => this.container = c}
+                style={{backgroundImage: 'url(' + fondo + ')'}}>
                 <article className="home-container">
                     <picture>
                         <source srcSet={welcomeLarge} media="(min-width: 670px)" />

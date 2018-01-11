@@ -19,3 +19,9 @@ a {
 ul {
     list-style-type: none;
 }
+
+.full-page {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}

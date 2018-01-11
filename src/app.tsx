@@ -1,6 +1,6 @@
 import * as React from "react";
 import { render } from 'react-dom';
-import * as ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import * as ReactTransitionGroup from 'react-addons-transition-group';
 
 import Home from './views/Home';
 import Loader from './views/Preloading-screen/PreloadingScreen';
@@ -28,19 +28,16 @@ export default class App extends React.Component {
     }
 
     render() {
+        let { isLoader } = this.state;
         return (
             <div>
-                {this.state.isLoader ? <Loader></Loader> : <Home /> }
+                <div className="full-page">
+                    {<ReactTransitionGroup>
+                        {isLoader === true ? <Loader></Loader> : null }
+                    </ReactTransitionGroup>}
+                    <Home isHidden={isLoader} />
+                </div>
             </div>
-            // <ReactCSSTransitionGroup
-            //     transitionName="example"
-            //     transitionAppear={true}
-            //     transitionAppearTimeout={5000}
-            //     transitionEnter={false}
-            //     transitionLeave={false}>
-            //     {/* <h1>Fading at Initial Mount</h1> */}
-            //     <Home />
-            // </ReactCSSTransitionGroup>
         );
     }
 }
