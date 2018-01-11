@@ -53,6 +53,11 @@ const rules = [
         test: /\.(svg|woff|woff2|ttf|eot)$/,
         exclude: /node:modules/,
         use: 'url-loader?limit=100000&name=fonts/[name].[ext]'
+    },
+    {
+        test: /\.(mp3)$/,
+        exclude: /node:modules/,
+        use: 'url-loader?limit=100000&name=fonts/[name].[ext]'
     }
 ]
 
