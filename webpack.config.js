@@ -50,14 +50,14 @@ const rules = [
         ]
     },
     {
-        test: /\.(svg|woff|woff2|ttf|eot)$/,
+        test: /\.(svg|woff|woff2|ttf|eot|otf)$/,
         exclude: /node:modules/,
         use: 'url-loader?limit=100000&name=fonts/[name].[ext]'
     },
     {
         test: /\.(mp3)$/,
         exclude: /node:modules/,
-        use: 'url-loader?limit=100000&name=fonts/[name].[ext]'
+        use: 'url-loader?limit=100000&name=sounds/[name].[ext]'
     }
 ]
 
