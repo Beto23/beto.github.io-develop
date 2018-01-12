@@ -14,12 +14,18 @@ class PreloadingScreen extends React.Component {
     
     componentWillLeave(callback: any) {
         const el = this.container;
-        TweenLite.to(el, 2, {x:"-100%",ease: "Power3.easeInOut", onComplete: callback});
+        TweenLite.to(el, 2, {x:"-100%", opacity: 0,ease: "Power3.easeInOut", onComplete: callback});
         clearInterval(this.audioInterval);
     }
 
     componentDidMount() {
+        const el = this.container;
+        TweenLite.fromTo(el,1,{opacity: 0, backgroundColor: "black"}, {opacity: 1,backgroundColor: "black", ease:"Power3.easeInOut", onComplete: this.handleAudio})
+    }
+
+    handleAudio = () : void => {
         this.audio =  document.getElementById('glitch');
+        this.audio.play();
         this.audio.volume = .8;
         this.audioInterval = setInterval(() => {
             if (this.audio.volume > 0) {
@@ -35,7 +41,7 @@ class PreloadingScreen extends React.Component {
     render() {
         return (
             <div className="full-screen" ref={c => this.container = c}>
-                <audio id="glitch" autoPlay>
+                <audio id="glitch">
                     <source src={glitch} />
                 </audio>
                 <div className="box-center">

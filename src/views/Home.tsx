@@ -19,7 +19,7 @@ class Home extends React.Component<Props> {
     componentWillReceiveProps(nextProps: Props) {
         const el = this.container;
         if(nextProps.isHidden === false) {
-            TweenLite.to(el, 2, {x:"0%", ease: "Power3.easeInOut"});
+            TweenLite.to(el, 2, {x:"0%",opacity: 1, ease: "Power3.easeInOut"});
         }
     }
 
@@ -29,7 +29,7 @@ class Home extends React.Component<Props> {
             <section
                 className="home"
                 ref={c => this.container = c}
-                style={{backgroundImage: 'url(' + fondo + ')'}}>
+                style={{backgroundImage: 'url(https://static.pexels.com/photos/735810/pexels-photo-735810.jpeg)'}}>
                 <article className="home-container">
                     <picture>
                         <source srcSet={welcomeLarge} media="(min-width: 670px)" />
