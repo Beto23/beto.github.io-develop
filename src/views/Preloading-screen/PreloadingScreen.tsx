@@ -42,7 +42,11 @@ class PreloadingScreen extends React.Component {
                     <div className="box-glitch">
                         <span className="box-glitch-title">Welcome</span>
                     </div>
-                    <span>Loading...</span>
+                    <div className="box-subtitle">
+                        <span className="box-subtitle-line"></span>
+                        <span>Loading...</span>
+                        <span className="box-subtitle-line"></span>                        
+                    </div>
                 </div>
             </div>
         )
