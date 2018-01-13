@@ -8,13 +8,20 @@ import * as welcomeDefault from '../assets/images/betocel.png';
 
 import FooterHome from '../components/FooterHome';
 
+import BackgroundMove from '../scripts/components/BackgroundMove';
+
 interface Props {
     isHidden : boolean
 }
 
 class Home extends React.Component<Props> {
 
-    container: any;
+    container: HTMLElement;
+
+    componentDidMount() {
+        const bgUrl  = 'https://static.pexels.com/photos/735810/pexels-photo-735810.jpeg'
+        let bg = new BackgroundMove(this.container, bgUrl);
+    }
 
     componentWillReceiveProps(nextProps: Props) {
         const el = this.container;
@@ -28,15 +35,13 @@ class Home extends React.Component<Props> {
         return(
             <section
                 className="home"
-                ref={c => this.container = c}
-                style={{backgroundImage: 'url(https://static.pexels.com/photos/735810/pexels-photo-735810.jpeg)'}}>
+                ref={c => this.container = c}>
                 <article className="home-container">
                     <picture>
                         <source srcSet={welcomeLarge} media="(min-width: 670px)" />
                         <source srcSet={welcomeDefault}/>
                         <img className="home-container-img" src={welcomeLarge} alt=""/>
                     </picture>
-                    {/*<img className="home-container-img" src={nameCel} alt=""/>*/}
                     <p className="home-container-text">I'm a Front-End web developer
                         based in Saltillo Coahuila, Mexico.
                         I like to work with the latest tools and methodologies by keeping up
