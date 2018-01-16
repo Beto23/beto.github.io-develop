@@ -15,7 +15,7 @@ const isProduction = nodeEnv === 'production';
 
 // Constant with our paths
 const paths = {
-    DIST: path.resolve(__dirname, 'dist'),
+    DIST: path.resolve(__dirname, 'docs'),
     APP: path.resolve(__dirname, 'src/'),
 };
 
@@ -91,7 +91,7 @@ if (isProduction) {
             loader: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: 'css-loader!sass-loader',
-                publicPath: '/dist'
+                publicPath: '/docs'
             }),
         }
     );
@@ -132,7 +132,7 @@ module.exports = {
         }
     },
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
+        contentBase: path.join(__dirname, "docs"),
         historyApiFallback: true,
         port: 9000,
         compress: isProduction,
