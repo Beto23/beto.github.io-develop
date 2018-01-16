@@ -2,7 +2,7 @@ import * as React from "react";
 import { render } from 'react-dom';
 import * as ReactTransitionGroup from 'react-addons-transition-group';
 
-import Home from './views/Home';
+import Home from './views/Home/Home';
 import Loader from './views/Preloading-screen/PreloadingScreen';
 
 import './app.scss';
@@ -24,7 +24,7 @@ export default class App extends React.Component {
             this.setState({
                 isLoader: false
             });
-        },6000)
+        },1000)
     }
 
     render() {

@@ -1,0 +1,45 @@
+.home {
+    height: 100vh;
+    transform: translateX(100%);
+    opacity: 0;
+    &__box-title {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    &__subtitle {
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
+    &__title {
+        margin-left: 53px;
+        margin-bottom: 1rem; 
+        letter-spacing: 53px;
+        font-size: 4em;
+        font-family: arkhip;
+        text-transform: uppercase;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .home {
+        &__title {
+            font-size: 3em;
+            margin-left: 40px;
+            letter-spacing: 40px;
+        }
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .home {
+        &__title {
+            font-size: 2em;
+            margin-left: 23px;
+            letter-spacing: 23px;
+        }
+    }
+}

@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 @import './assets/fonts/beto/beto.css';
 
+@font-face {
+    font-family: arkhip;
+    src: url('./assets/fonts/Arkhip_font.ttf');
+}
+
 * {
     margin: 0;
     padding: 0;
