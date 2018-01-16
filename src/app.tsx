@@ -24,7 +24,7 @@ export default class App extends React.Component {
             this.setState({
                 isLoader: false
             });
-        },1000)
+        },6000)
     }
 
     render() {

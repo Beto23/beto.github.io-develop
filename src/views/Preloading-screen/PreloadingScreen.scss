@@ -15,7 +15,7 @@
         top: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-        width: 80%;
+        width: 100%;
         overflow: hidden;
         .box-subtitle {
             font-family: arkhip;  
@@ -63,7 +63,7 @@
                 color: #fff;
                 text-transform: uppercase;
                 font-family: arkhip;
-                transform: translateX(30px);
+                margin-left: 30px;
                 &:after, &::before {
                     display: block;
                     content: '';
@@ -75,6 +75,45 @@
                     overflow: hidden;
                     clip: rect(0, 900px, 0, 0);
                     animation: glitch 1s infinite linear alternate-reverse;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 845px) {
+    .full-screen{
+        .box-center {
+            .box-glitch {
+                height: 105px;
+                &-title {
+                    font-size: 75px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 665px) {
+    .full-screen{
+        .box-center {
+            .box-glitch {
+                &-title {
+                    font-size: 45px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 665px) {
+    .full-screen{
+        .box-center {
+            .box-glitch {
+                &-title {
+                    font-size: 40px;
+                    margin-left: 16px;
+                    letter-spacing: 16px;
                 }
             }
         }
