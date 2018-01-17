@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "41f25bdf0a1553fb19b3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "dcfe422e15dd44798456"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -38394,6 +38394,59 @@ module.exports = __webpack_require__.p + "sounds/glitch.mp3";
 
 /***/ }),
 
+/***/ "./src/components/BoxSocial/BoxSocial.scss":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/components/BoxSocial/BoxSocial.tsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__("./node_modules/react/index.js");
+__webpack_require__("./src/components/BoxSocial/BoxSocial.scss");
+class BoxSocial extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            links: [
+                {
+                    icon: 'icon-github',
+                    url: 'https://github.com/Beto23'
+                },
+                {
+                    icon: 'icon-linkedin',
+                    url: 'https://www.linkedin.com/in/jose-alberto-cordoba-lugo-4031a911a/'
+                },
+                {
+                    icon: 'icon-codepen',
+                    url: 'https://codepen.io/jbeto23/'
+                },
+                {
+                    icon: 'icon-twitter',
+                    url: 'https://twitter.com/BetoCL23'
+                },
+            ]
+        };
+    }
+    render() {
+        return (React.createElement("div", { className: "box-social" },
+            React.createElement("ul", { className: "box-social__links" }, this.state.links.map((link, key) => {
+                return (React.createElement("li", { key: key, className: "box-social__link" },
+                    React.createElement("a", { href: link.url, target: "_blank" },
+                        React.createElement("i", { className: link.icon }))));
+            }))));
+    }
+}
+exports.default = BoxSocial;
+
+
+/***/ }),
+
 /***/ "./src/scripts/components/BackgroundMove.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -38447,6 +38500,7 @@ __webpack_require__("./src/views/Home/home.scss");
 const homeLg = __webpack_require__("./src/assets/images/home-lg.jpeg");
 //Components
 const BackgroundMove_1 = __webpack_require__("./src/scripts/components/BackgroundMove.ts");
+const BoxSocial_1 = __webpack_require__("./src/components/BoxSocial/BoxSocial.tsx");
 class Home extends React.Component {
     componentDidMount() {
         const bgUrl = homeLg;
@@ -38463,7 +38517,9 @@ class Home extends React.Component {
         return (React.createElement("section", { className: "home", ref: c => this.container = c },
             React.createElement("div", { className: "home__box-title" },
                 React.createElement("h1", { className: "home__title" }, "Alberto"),
-                React.createElement("span", { className: "home__subtitle" }, "Front-End Web Developer"))));
+                React.createElement("span", { className: "home__subtitle" }, "Front-End Web Developer")),
+            React.createElement(BoxSocial_1.default, null),
+            ">"));
     }
 }
 exports.default = Home;
