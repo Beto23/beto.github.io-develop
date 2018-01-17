@@ -24,17 +24,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-close:before {
-  content: "\e906";
-}
-.icon-menu:before {
-  content: "\e904";
-}
-.icon-menu2:before {
-  content: "\e905";
-}
-.icon-github:before {
-  content: "\e903";
+.icon-codepen:before {
+  content: "\e907";
 }
 .icon-twitter:before {
   content: "\e900";
@@ -44,4 +35,16 @@
 }
 .icon-facebook:before {
   content: "\e902";
+}
+.icon-github:before {
+  content: "\e903";
+}
+.icon-menu:before {
+  content: "\e904";
+}
+.icon-menu2:before {
+  content: "\e905";
+}
+.icon-close:before {
+  content: "\e906";
 }

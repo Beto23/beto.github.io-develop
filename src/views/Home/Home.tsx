@@ -9,6 +9,7 @@ import * as homeLg from '../../assets/images/home-lg.jpeg';
 
 //Components
 import BackgroundMove from '../../scripts/components/BackgroundMove';
+import Social from '../../components/BoxSocial/BoxSocial';
 
 interface Props {
     isHidden : boolean
@@ -40,6 +41,7 @@ class Home extends React.Component<Props> {
                     <h1 className="home__title">Alberto</h1>
                     <span className="home__subtitle">Front-End Web Developer</span>
                 </div>
+                <Social />>
             </section>
         )
     }
