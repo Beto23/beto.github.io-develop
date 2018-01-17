@@ -26,6 +26,9 @@
 
 @media screen and (max-width: 750px) {
     .home {
+        .bg--move {
+            background-position: 30%;
+        }
         &__title {
             font-size: 3em;
             margin-left: 40px;

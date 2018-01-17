@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { TweenLite } from 'gsap';
 
+//styles
 import './home.scss';
-// import * as fondo from './../assets/images/pexels3.jpeg';
-// import * as welcomeLarge from './../assets/images/welcome3.png';
-// import * as welcomeDefault from '../assets/images/betocel.png';
 
+//images
+import * as homeLg from '../../assets/images/home-lg.jpeg';
+
+//Components
 import BackgroundMove from '../../scripts/components/BackgroundMove';
 
 interface Props {
@@ -17,7 +19,7 @@ class Home extends React.Component<Props> {
     container: HTMLElement;
 
     componentDidMount() {
-        const bgUrl  = 'https://static.pexels.com/photos/735810/pexels-photo-735810.jpeg'
+        const bgUrl  = homeLg;
         let bg = new BackgroundMove(this.container, bgUrl);
     }
 
