@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e7d78892a1b9772223c3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "41f25bdf0a1553fb19b3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -38380,6 +38380,13 @@ react_dom_1.render(React.createElement(App, null), document.getElementById('app'
 
 /***/ }),
 
+/***/ "./src/assets/images/home-lg.jpeg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "src/assets/images/home-lg.jpeg";
+
+/***/ }),
+
 /***/ "./src/assets/sounds/glitch.mp3":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -38434,14 +38441,15 @@ exports.default = BackgroundMove;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__("./node_modules/react/index.js");
 const gsap_1 = __webpack_require__("./node_modules/gsap/TweenMax.js");
+//styles
 __webpack_require__("./src/views/Home/home.scss");
-// import * as fondo from './../assets/images/pexels3.jpeg';
-// import * as welcomeLarge from './../assets/images/welcome3.png';
-// import * as welcomeDefault from '../assets/images/betocel.png';
+//images
+const homeLg = __webpack_require__("./src/assets/images/home-lg.jpeg");
+//Components
 const BackgroundMove_1 = __webpack_require__("./src/scripts/components/BackgroundMove.ts");
 class Home extends React.Component {
     componentDidMount() {
-        const bgUrl = 'https://static.pexels.com/photos/735810/pexels-photo-735810.jpeg';
+        const bgUrl = homeLg;
         let bg = new BackgroundMove_1.default(this.container, bgUrl);
     }
     componentWillReceiveProps(nextProps) {
@@ -38510,12 +38518,12 @@ class PreloadingScreen extends React.Component {
     }
     componentWillLeave(callback) {
         const el = this.container;
-        gsap_1.TweenLite.to(el, 2, { x: "-100%", opacity: 0, ease: "Power3.easeInOut", onComplete: callback });
+        gsap_1.TweenLite.to(el, 2, { x: "-100%", opacity: 0.7, ease: "Power3.easeInOut", onComplete: callback });
         clearInterval(this.audioInterval);
     }
     componentDidMount() {
         const el = this.container;
-        gsap_1.TweenLite.fromTo(el, 1, { opacity: 0, backgroundColor: "black" }, { opacity: 1, backgroundColor: "black", ease: "Power3.easeInOut", onComplete: this.handleAudio });
+        gsap_1.TweenLite.fromTo(el, 1, { opacity: 0, backgroundColor: "white" }, { opacity: 1, backgroundColor: "white", ease: "Power3.easeInOut", onComplete: this.handleAudio });
     }
     render() {
         return (React.createElement("div", { className: "full-screen", ref: c => this.container = c },
