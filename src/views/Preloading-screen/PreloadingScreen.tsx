@@ -14,13 +14,13 @@ class PreloadingScreen extends React.Component {
     
     componentWillLeave(callback: any) {
         const el = this.container;
-        TweenLite.to(el, 2, {x:"-100%", opacity: 0,ease: "Power3.easeInOut", onComplete: callback});
+        TweenLite.to(el, 2, {x:"-100%", opacity: 0.7,ease: "Power3.easeInOut", onComplete: callback});
         clearInterval(this.audioInterval);
     }
 
     componentDidMount() {
         const el = this.container;
-        TweenLite.fromTo(el,1,{opacity: 0, backgroundColor: "black"}, {opacity: 1,backgroundColor: "black", ease:"Power3.easeInOut", onComplete: this.handleAudio})
+        TweenLite.fromTo(el,1,{opacity: 0, backgroundColor: "white"}, {opacity: 1,backgroundColor: "white", ease:"Power3.easeInOut", onComplete: this.handleAudio})
     }
 
     handleAudio = () : void => {
