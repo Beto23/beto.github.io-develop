@@ -6,6 +6,8 @@ import './home.scss';
 
 //images
 import * as homeLg from '../../assets/images/home-lg.jpeg';
+import * as homeLg2 from '../../assets/images/home-lg-2.jpeg';
+
 
 //Components
 import BackgroundMove from '../../scripts/components/BackgroundMove';
@@ -20,8 +22,17 @@ class Home extends React.Component<Props> {
     container: HTMLElement;
 
     componentDidMount() {
-        const bgUrl  = homeLg;
-        let bg = new BackgroundMove(this.container, bgUrl);
+        let bg = new BackgroundMove(this.container, this.randomImage());
+    }
+
+    randomImage() : string {
+        const num = Math.floor(Math.random() * 2); // 0...1
+        switch (num) {
+            case 0:
+                return homeLg;
+            case 1:
+                return homeLg2;
+        }
     }
 
     componentWillReceiveProps(nextProps: Props) {
