@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dcfe422e15dd44798456"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "63e1bd0d6933995e0a60"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -38380,6 +38380,13 @@ react_dom_1.render(React.createElement(App, null), document.getElementById('app'
 
 /***/ }),
 
+/***/ "./src/assets/images/home-lg-2.jpeg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "src/assets/images/home-lg-2.jpeg";
+
+/***/ }),
+
 /***/ "./src/assets/images/home-lg.jpeg":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -38498,13 +38505,22 @@ const gsap_1 = __webpack_require__("./node_modules/gsap/TweenMax.js");
 __webpack_require__("./src/views/Home/home.scss");
 //images
 const homeLg = __webpack_require__("./src/assets/images/home-lg.jpeg");
+const homeLg2 = __webpack_require__("./src/assets/images/home-lg-2.jpeg");
 //Components
 const BackgroundMove_1 = __webpack_require__("./src/scripts/components/BackgroundMove.ts");
 const BoxSocial_1 = __webpack_require__("./src/components/BoxSocial/BoxSocial.tsx");
 class Home extends React.Component {
     componentDidMount() {
-        const bgUrl = homeLg;
-        let bg = new BackgroundMove_1.default(this.container, bgUrl);
+        let bg = new BackgroundMove_1.default(this.container, this.randomImage());
+    }
+    randomImage() {
+        const num = Math.floor(Math.random() * 2); // 0...1
+        switch (num) {
+            case 0:
+                return homeLg;
+            case 1:
+                return homeLg2;
+        }
     }
     componentWillReceiveProps(nextProps) {
         const el = this.container;
