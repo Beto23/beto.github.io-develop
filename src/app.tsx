@@ -31,12 +31,7 @@ export default class App extends React.Component {
         let { isLoader } = this.state;
         return (
             <div>
-                <div className="full-page">
-                    {<ReactTransitionGroup>
-                        {isLoader === true ? <Loader></Loader> : null }
-                    </ReactTransitionGroup>}
-                    <Home isHidden={isLoader} />
-                </div>
+                <Home isHidden={false} />
             </div>
         );
     }
