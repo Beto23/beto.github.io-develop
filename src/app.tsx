@@ -9,14 +9,30 @@ import './app.scss';
 
 interface State {
     isLoader: boolean;
+    defaultTitle: string;
+    titleBlur: string;
 }
 
 export default class App extends React.Component {
 
-    state : State = { isLoader: true }
+    state : State = {
+        isLoader: true,
+        defaultTitle: 'Beto23',
+        titleBlur: `I miss you :(`
+    }
 
     componentDidMount() {
+        this.handleDocumentTitle();
         this.loader();
+    }
+
+    handleDocumentTitle = () => {
+        window.addEventListener("blur", () => {
+            document.title = this.state.titleBlur
+        });
+        window.addEventListener("focus", () => {
+            document.title = this.state.defaultTitle
+        });
     }
 
     loader = () : void => {
