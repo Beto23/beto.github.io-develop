@@ -30,7 +30,7 @@ class Home extends React.Component<Props> {
     };
 
     componentDidMount() {
-        let bg = new BackgroundMove(this.container, this.randomImage());
+        // let bg = new BackgroundMove(this.container, this.randomImage());
         this.setState({
             positionClipPath: '50%',
         });
@@ -102,6 +102,10 @@ class Home extends React.Component<Props> {
                 <div
                     className="clip-path"
                     style={{clipPath: `polygon(0 100%, 0 0, ${positionClipPath} 0, ${positionClipPath} 100%)`}}>
+                    <div className="home__box-title noselect">
+                        <h1 className="home__title noselect">Alberto</h1>
+                        <span className="home__subtitle noselect">Front-End Web Developer</span>
+                    </div>
                 </div>
                 <span
                     ref={indicator => {this.indicator = indicator}}
@@ -117,5 +121,3 @@ class Home extends React.Component<Props> {
 }
 
 export default Home;
-
-//https://www.w3schools.com/howto/howto_js_draggable.asp
