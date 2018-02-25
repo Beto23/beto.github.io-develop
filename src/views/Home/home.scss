@@ -34,13 +34,15 @@
         // clip-path: polygon(0 100%, 0 0, 50% 0, 50% 100%);
     }
     .indicator {
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
         position: absolute;
-        top:50%;
+        top: 0;
         left: 50%;
-        background: rgb(2, 238, 226);
-        height: 60px;
+        background: transparent;
+        height: 100%;
         width: 60px;
+        cursor: move;
+        /* bottom: -55px; */
     }
 }
 
