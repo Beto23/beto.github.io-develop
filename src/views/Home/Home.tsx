@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { TweenLite } from 'gsap';
-import * as $ from "jquery";
 
 //styles
 import './home.scss';
@@ -20,7 +18,6 @@ interface Props {
 
 interface State {
     positionClipPath: string;
-    isMousedown?: boolean;
 }
 
 class Home extends React.Component<Props> {
@@ -30,7 +27,6 @@ class Home extends React.Component<Props> {
 
     state: State = {
         positionClipPath: '50%',
-        isMousedown: false
     };
 
     componentDidMount() {
@@ -40,33 +36,37 @@ class Home extends React.Component<Props> {
         });
     }
         
-    handleDragElemet = (elmnt: HTMLElement) => {
+
+    handleDragElemet = (e: any, elmnt: HTMLElement) : void => {
         let pos1 = 0, pos2 = 0;
-        if (document.getElementById(elmnt.id)) {
-            document.getElementById(elmnt.id).onmousedown = (e:any) => {
-                e = e || window.event;
-                // get the mouse cursor position at startup:
-                pos2 = e.clientX;
-                document.onmouseup = () => {
-                    /* stop moving when mouse button is released:*/
-                    document.onmouseup = null;
-                    document.onmousemove = null;
-                };
-                // call a function whenever the cursor moves:
-                document.onmousemove = (e:any) => {
-                    e = e || window.event;
-                    // calculate the new cursor position:
-                    pos1 = pos2 - e.clientX;
-                    pos2 = e.clientX;
-                    // set the element's new position:
-                    //elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-                    this.setState({
-                        positionClipPath: `${elmnt.offsetLeft - pos1}px`
-                    });
-                };
-            }
-        }
+            e = e || window.event;
+            // get the mouse cursor position at startup:
+            pos2 = e.clientX;
+            this.handleonMouseup();
+            // call a function whenever the cursor moves:
+            this.handleMouseMove(elmnt, pos1, pos2);
+    }
+
+    handleMouseMove = (elmnt: HTMLElement, pos1: number, pos2: number) : void => {
+        document.onmousemove = (e:any) => {
+            e = e || window.event;
+            // calculate the new cursor position:
+            pos1 = pos2 - e.clientX;
+            pos2 = e.clientX;
+            // set the element's new position:
+            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            this.setState({
+                positionClipPath: `${elmnt.offsetLeft - pos1}px`
+            });
+        };
+    }
+
+    handleonMouseup() : void {
+        document.onmouseup = () => {
+            /* stop moving when mouse button is released:*/
+            document.onmouseup = null;
+            document.onmousemove = null;
+        };
     }
 
 
@@ -90,7 +90,7 @@ class Home extends React.Component<Props> {
 
     render(){
         let { isHidden } = this.props;
-        let { positionClipPath, isMousedown } = this.state;
+        let { positionClipPath } = this.state;
         return(
             <section
                 className="home"
@@ -102,13 +102,11 @@ class Home extends React.Component<Props> {
                 <div
                     className="clip-path"
                     style={{clipPath: `polygon(0 100%, 0 0, ${positionClipPath} 0, ${positionClipPath} 100%)`}}>
-                    <div className="clip-path_box">
-                    </div>
                 </div>
                 <span
                     ref={indicator => {this.indicator = indicator}}
                     className="indicator"
-                    onClick={() => this.handleDragElemet(this.indicator)}
+                    onMouseDown={(e) => this.handleDragElemet(e, this.indicator)}
                     id="indicator"> 
                 </span>
                 <Social />
