@@ -4,6 +4,7 @@ import * as ReactTransitionGroup from 'react-addons-transition-group';
 
 import Home from './views/Home/Home';
 import Loader from './views/Preloading-screen/PreloadingScreen';
+import Header from './components/Header/Header';
 
 import './app.scss';
 
@@ -47,6 +48,7 @@ export default class App extends React.Component {
         let { isLoader } = this.state;
         return (
             <div>
+                {/* <Header /> */}
                 <Home isHidden={false} />
             </div>
         );

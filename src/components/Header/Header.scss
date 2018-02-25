@@ -1,0 +1,13 @@
+.header {
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    right: 0;
+    // background: blue;
+    &-icon {
+        position: absolute;
+        right: 25px;
+        top: 11px;
+    
+    }
+}
