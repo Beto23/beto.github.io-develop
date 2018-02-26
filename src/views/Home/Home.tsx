@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { TweenMax } from 'gsap';
 
 //styles
 import './home.scss';
@@ -31,11 +32,22 @@ class Home extends React.Component<Props> {
 
     componentDidMount() {
         // let bg = new BackgroundMove(this.container, this.randomImage());
+        this.handleAnimation();
         this.setState({
             positionClipPath: '50%',
         });
     }
-        
+
+    handleAnimation() : void {
+        let title = document.getElementsByClassName('home__title');
+        let subTitle = document.getElementsByClassName('home__subtitle');
+
+        TweenMax.staggerTo(title, 1.5,{ opacity: 1, ease : 'Cubic.easeIn'}, 0, animationSubtitle);
+
+        function animationSubtitle() {
+            TweenMax.staggerFromTo(subTitle, 1.5, {y:"60px", opacity: 0}, {y:"0%", opacity: 1, esae: 'Cubic.easeIn'}, 0);
+        }
+    }
 
     handleDragElemet = (e: any, elmnt: HTMLElement) : void => {
         let pos1 = 0, pos2 = 0;
