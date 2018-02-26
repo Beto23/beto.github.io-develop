@@ -103,6 +103,12 @@ class Home extends React.Component<Props> {
     render(){
         let { isHidden } = this.props;
         let { positionClipPath } = this.state;
+        
+        let Styles = {
+            clipPath: `polygon(0 100%, 0 0, ${this.state.positionClipPath} 0, ${this.state.positionClipPath} 100%)`,
+            WebkitClipPath: `polygon(0 100%, 0 0, ${this.state.positionClipPath} 0, ${this.state.positionClipPath} 100%)`
+        }
+        
         return(
             <section
                 className="home"
@@ -113,7 +119,7 @@ class Home extends React.Component<Props> {
                 </div>
                 <div
                     className="clip-path"
-                    style={{clipPath: `polygon(0 100%, 0 0, ${positionClipPath} 0, ${positionClipPath} 100%)`}}>
+                    style={Styles}>
                     <div className="home__box-title noselect">
                         <h1 className="home__title noselect">Alberto</h1>
                         <span className="home__subtitle noselect">Front-End Web Developer</span>
