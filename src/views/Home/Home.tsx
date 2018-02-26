@@ -96,7 +96,7 @@ class Home extends React.Component<Props> {
                 className="home"
                 ref={c => this.container = c}>
                 <div className="home__box-title noselect">
-                    <h1 className="home__title noselect">Alberto</h1>
+                    <h1 className="home__title home__title--animate noselect">Alberto</h1>
                     <span className="home__subtitle noselect">Front-End Web Developer</span>
                 </div>
                 <div
