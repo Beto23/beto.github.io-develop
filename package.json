@@ -4,12 +4,16 @@
   "description": "Estructura webpack + reactJs",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "npm run build",
-    "start": "webpack-dev-server",
-    "dev": "webpack-dashboard -t -- webpack-dev-server",
-    "build": "npm run clean && NODE_ENV=\"production\" webpack",
+    "postinstall": "npm run build",
+    "start": "node server.js",
+    "dev": "webpack-dev-server",
+    "dev-board": "webpack-dashboard -t -- webpack-dev-server",
+    "build": "NODE_ENV=\"production\" && webpack",
     "clean": "rimraf ./docs/*",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "8.9.4"
   },
   "keywords": [
     "webpack",
