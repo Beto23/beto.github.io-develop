@@ -7,4 +7,4 @@ app.use(express.static(__dirname + '/docs'),(request,response) => {
 });
 
 //Binding the server to a port(3000)
-app.listen(3000,() => console.log('express server started at port 3000'))
+app.listen(process.env.PORT || 5000,() => console.log('express server started'))
