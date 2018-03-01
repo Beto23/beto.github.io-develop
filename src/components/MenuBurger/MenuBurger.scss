@@ -45,6 +45,7 @@
     right: 37px;
     top: 31px;
     cursor: pointer;
+    z-index: 5;
     .lines {
         position: relative;
         overflow: hidden;
@@ -53,7 +54,7 @@
         background: white;
         margin-bottom: 7px;
     }
-    .line3 {
+    .line1 {
         width: 15px;
         transform: translateX(11px);
     }
