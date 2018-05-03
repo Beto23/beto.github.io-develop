@@ -1,3 +1,14 @@
+html {
+    cursor: none;
+}
 body {
     background-color: red;
+}
+
+.b-cursor-custom {
+    height: 15px;
+    width: 15px;
+    border-radius: 20px;
+    background-color: blue;
+    position: absolute;
 }
