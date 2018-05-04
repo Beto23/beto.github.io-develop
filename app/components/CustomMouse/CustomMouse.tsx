@@ -17,10 +17,13 @@ export default class CustomMouse extends React.Component {
     }
 
     handleCustomCursor = (e: MouseEvent) => {
-        this.setState({
-            pageX: e.pageX,
-            pageY: e.pageY
-        });
+        setTimeout(() => {
+            this.setState({
+                pageX: e.pageX,
+                pageY: e.pageY
+            });
+
+        }, 100);
     }
 
     render() {
