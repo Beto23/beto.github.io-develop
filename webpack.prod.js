@@ -22,7 +22,7 @@ module.exports = merge(common, {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
+                    use: ['css-loader', 'resolve-url-loader', 'postcss-loader?sourceMap', 'sass-loader?sourceMap']
                 }),
             },
         ]

@@ -11,7 +11,7 @@ module.exports = merge(common, {
             {
                 test:  /\.scss$/,
                 exclude: /node_modules/,
-                use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
+                use: ['style-loader', 'css-loader', 'resolve-url-loader', 'postcss-loader?sourceMap', 'sass-loader?sourceMap']
             }
         ]
     },

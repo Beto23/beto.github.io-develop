@@ -1,9 +1,12 @@
-body {
-    background-color: #2b2b2b;
-    background-color: #f33a3a;
-    background-color: #13181e;
+@import './_globals/_variables.scss';
 
-    color: #fff;
+body {
+    // background-color: #2b2b2b;
+    // background-color: #f33a3a;
+    // background-color: #13181e;
+    background-color: var(--mainColor);
+
+    color: var(--mainTextColor);
 }
 
 .b-cursor-custom {
@@ -12,4 +15,6 @@ body {
     border-radius: 20px;
     background-color: blue;
     position: absolute;
+    display: flex;
+    justify-content: center;
 }
