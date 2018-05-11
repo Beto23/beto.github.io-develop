@@ -1,13 +1,13 @@
 import * as React from "react";
-import { render } from 'react-dom';
+import { render } from "react-dom";
 
-import CustomMouse from './components/CustomMouse/CustomMouse';
-import Home from './views/Home/Home';
+import CustomMouse from "./components/CustomMouse/CustomMouse";
+import Home from "./views/Home/Home";
 
-import './styles/common.scss';
+import "./styles/common.scss";
 export default class App extends React.Component {
 
-    render() {
+    public render() {
         return (
             <div>
                 <CustomMouse />
@@ -19,6 +19,6 @@ export default class App extends React.Component {
 
 render((
     <App />
-), document.getElementById('app'))
+), document.getElementById("app"));
 
 module.hot.accept();

@@ -1,40 +1,45 @@
+import * as $ from "jquery";
 import * as React from "react";
 
 interface IState {
-    pageX: number,
-    pageY: number
+    pageX: number;
+    pageY: number;
 }
 
 export default class CustomMouse extends React.Component {
 
-    state: IState = {
+    public state: IState = {
         pageX: 0,
-        pageY: 0
-    }
+        pageY: 0,
+    };
 
-    componentDidMount() {
+    public componentDidMount() {
         document.onmousemove = this.handleCustomCursor;
+        const customMouse: HTMLElement = document.getElementsByClassName("b-cursor-custom")[0] as HTMLElement;
+
+        $("body").hover(() => {
+            console.log("enter");
+            customMouse.style.opacity = "1";
+        }, () => {
+            console.log("out");
+            customMouse.style.opacity = "0";
+        });
     }
 
-    handleCustomCursor = (e: MouseEvent) => {
-        setTimeout(() => {
-            this.setState({
-                pageX: e.pageX,
-                pageY: e.pageY
-            });
-
-        }, 100);
-    }
-
-    render() {
+    public render() {
         return (
             <div
                 className="b-cursor-custom"
-                style={{
-                    left: this.state.pageX,
-                    top: this.state.pageY
-                }}>
-            </div>
+                style={{left: this.state.pageX, top: this.state.pageY}}
+            />
         );
-    };
+    }
+
+    private handleCustomCursor = (e: MouseEvent) => {
+        this.setState({
+            pageX: e.pageX,
+            pageY: e.pageY,
+        });
+    }
+
 }
