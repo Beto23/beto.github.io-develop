@@ -18,10 +18,8 @@ export default class CustomMouse extends React.Component {
         const customMouse: HTMLElement = document.getElementsByClassName("b-cursor-custom")[0] as HTMLElement;
 
         $("body").hover(() => {
-            console.log("enter");
             customMouse.style.opacity = "1";
         }, () => {
-            console.log("out");
             customMouse.style.opacity = "0";
         });
     }

@@ -1,4 +1,10 @@
-declare module '*.png';
-declare module '*.jpg';
-declare module '*.jpeg';
-declare module '*.svg';
+declare module "*.png";
+declare module "*.jpg";
+declare module "*.jpeg";
+declare module "*.svg";
+declare module "*.json" {
+    const value: any;
+    export default value;
+}
+declare var Particles: any;
+declare var particlesJS: any;

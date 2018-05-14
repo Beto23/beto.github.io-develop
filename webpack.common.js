@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
     entry: ['react-hot-loader/patch','./app/app.tsx'],
@@ -53,6 +55,9 @@ module.exports = {
             template: "./app/index.html",
             filename: 'index.html',
         }),
+        new CopyWebpackPlugin([
+            './app/assets/jsons/particles.json'
+        ]),
         new webpack.HotModuleReplacementPlugin(),
     ],
     resolve: {
