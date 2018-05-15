@@ -1,5 +1,6 @@
 @import '../../_globals/_variables.scss';
 @import '../../_globals/_typography.scss';
+@import '../../utils/_easings.scss';
 
 
 :root {
@@ -14,56 +15,66 @@
     height: 100vh;
     font-family: var(--homeFont);
     overflow: hidden;
-    .background {
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        z-index: 0;
-    }
+    display: grid;
+    grid-template-columns: 40% 1fr;
     .home__greeting{
-        position: absolute;
-        left: 15%;
-        top: 45%;
-        transform: translateY(-50%);
-        animation: linear .3s .5s enterTitle forwards;
-        .home__greeting__title {
-            font-size: 70px;
-            line-height: 70px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            span {
-                width: fit-content;
-                color: var(--mainColor);
-                text-transform: uppercase;
-                // -webkit-text-stroke: 1px var(--mainColor);
-                &.say-hello {
-                    text-decoration: underline;
-                    font-size: 20px;
-                    &::after {
-                        content: '';
-                        animation: spin 4s linear infinite forwards;
-                        animation-delay: .5s;
+        position: relative;
+        .home__greeting-container {
+            position: absolute;
+            left: 15%;
+            top: 45%;
+            transform: translateY(-50%);
+            .home__greeting__title {
+                font-size: 70px;
+                line-height: 70px;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                margin-bottom: 1rem;
+                span {
+                    transform: translateX(-100%);
+                    animation: enterText 1.7s $EASE_OUT_EXPO forwards;
+                    width: fit-content;
+                    color: var(--mainColor);
+                    text-transform: uppercase;
+                    // -webkit-text-stroke: 1px var(--mainColor);
+                    &.say-hello {
+                        text-decoration: underline;
+                        font-size: 20px;
+                        &::after {
+                            content: 'Hello';
+                            animation: spin 4s linear infinite forwards;
+                            animation-delay: 1s;
+                        }
+                    }
+                    &:nth-child(1), &:nth-child(2) {
+                        color: var(--mainTextColor);
+                        font-family: var(--centuryReg);
+                    }
+                    &:nth-child(3) {
+                        color: #d52626;
                     }
                 }
-                &:nth-child(1), &:nth-child(2) {
-                    color: var(--mainTextColor);
-                    font-family: var(--centuryReg);
-                }
-                &:nth-child(3) {
-                    color: #d52626;
-                }
+            }
+            .home__greeting__subtitle {
+                font-family: var(--centuryReg);
+                opacity: 0;
+                animation: enterSubtitle 1.7s $EASE_OUT_EXPO forwards;
+                animation-delay: .6s;
             }
         }
-        .home__greeting__subtitle {
-            font-family: var(--centuryReg);
-        }
     }
-    .home__container-mountain{
-        position: absolute;
-        bottom: -4px;
+    .home__background-container {
+        overflow: hidden;
+        .home__background-image {
+            background-image: url('https://images.unsplash.com/photo-1447639703758-f525f36456bf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=eed4e60389692478a4885c60be5593f9&auto=format&fit=crop&w=1013&q=80');
+            background-size: cover;
+            background-position-x: -220px;
+            background-repeat: no-repeat;
+            height: 100%;
+            animation: enterBackground 1.7s $EASE_OUT_EXPO forwards;
+            animation-delay: .3s;
+        }
     }
 }
 
@@ -100,5 +111,34 @@
     }
     100% {
         content:"Hello";
+    }
+}
+
+@keyframes enterBackground {
+    0% {
+        background-position-x: -220px;
+    }
+    100% {
+        background-position-x: -170px;
+    }
+}
+
+@keyframes enterText {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes enterSubtitle {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
