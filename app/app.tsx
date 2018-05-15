@@ -2,7 +2,7 @@ import * as React from "react";
 import { render } from "react-dom";
 
 import CustomMouse from "./components/CustomMouse/CustomMouse";
-import ScreenLoader from "./components/LoaderScreen/LoaderScreen";
+// import ScreenLoader from "./components/LoaderScreen/LoaderScreen";
 import Home from "./views/Home/Home";
 
 import "./styles/common.scss";
@@ -20,7 +20,7 @@ export default class App extends React.Component {
         return (
             <div>
                 <CustomMouse />
-                {this.state.isLoad ? <ScreenLoader /> : null}
+                {/* {this.state.isLoad ? <ScreenLoader /> : null} */}
                 <Home handleLoad={this.handleLoad} />
             </div>
         );

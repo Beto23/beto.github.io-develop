@@ -9,12 +9,11 @@
 }
 
 .home {
-    background-image: linear-gradient(to bottom, #1b1f24, #16212f, #10223b, #0c2346, #0d2351);
+    background-color: #f3f3f3;
     position: relative;
     height: 100vh;
     font-family: var(--homeFont);
     overflow: hidden;
-    transform: scale(0.3);
     .background {
         position: absolute;
         display: block;
@@ -24,10 +23,9 @@
     }
     .home__greeting{
         position: absolute;
-        left: 5%;
+        left: 15%;
         top: 45%;
-        // transform: translateY(-50%);
-        transform: translateY(80%);
+        transform: translateY(-50%);
         animation: linear .3s .5s enterTitle forwards;
         .home__greeting__title {
             font-size: 70px;
@@ -35,15 +33,32 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            margin-bottom: 1rem;
             span {
                 width: fit-content;
-                color: var(--whitoutColor);
-                -webkit-text-stroke: 1px var(--mainColor);
-                span {
+                color: var(--mainColor);
+                text-transform: uppercase;
+                // -webkit-text-stroke: 1px var(--mainColor);
+                &.say-hello {
+                    text-decoration: underline;
+                    font-size: 20px;
+                    &::after {
+                        content: '';
+                        animation: spin 4s linear infinite forwards;
+                        animation-delay: .5s;
+                    }
+                }
+                &:nth-child(1), &:nth-child(2) {
+                    color: var(--mainTextColor);
                     font-family: var(--centuryReg);
                 }
+                &:nth-child(3) {
+                    color: #d52626;
+                }
             }
-
+        }
+        .home__greeting__subtitle {
+            font-family: var(--centuryReg);
         }
     }
     .home__container-mountain{
@@ -52,11 +67,38 @@
     }
 }
 
-@keyframes enterTitle {
+@keyframes spin {
     0% {
-        transform: translateY(80%);
+        content:"Hello"; // Usa
+    }
+    10% {
+        content:"Hola"; // Mexico
+    }
+    20% {
+        content:"Salut"; // Francia
+    }
+    30% {
+        content:"Hallo"; // Germany
+    }
+    40% {
+        content:"Ciao"; // Italia
+    }
+    50% {
+        content:"こんにちは"; // Japan
+    }
+    60% {
+        content:"Здравствуйте"; // Russia
+    }
+    70% {
+        content:"你好"; // China
+    }
+    80% {
+        content:"Que onda"; // Mexico
+    }
+    90% {
+        content:"여보세요"; // Korea
     }
     100% {
-        transform: translateY(-50%);
+        content:"Hello";
     }
 }
