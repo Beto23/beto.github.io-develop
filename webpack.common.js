@@ -33,6 +33,18 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.jsx?$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['es2015']
+                        }
+                    },
+                ],
+                exclude: /node_modules/
+            },
+            {
                 test: /\.(woff|woff2|eot|ttf|otf|)(\?.*)?$/,
                 use: 'file-loader?name=fonts/[name][hash].[ext]'
             },
