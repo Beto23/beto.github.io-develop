@@ -2,11 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
-    entry: ['react-hot-loader/patch','./app/app.tsx'],
+    entry: ['react-hot-loader/patch','./app/app.js'],
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'docs'),
@@ -20,7 +19,7 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['es2015']
+                            presets: ['@babel/preset-env']
                         }
                     },
                     {
@@ -31,6 +30,16 @@ module.exports = {
                     }
                 ],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-react']
+                    }
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf|)(\?.*)?$/,
@@ -55,9 +64,6 @@ module.exports = {
             template: "./app/index.html",
             filename: 'index.html',
         }),
-        new CopyWebpackPlugin([
-            './app/assets/jsons/particles.json'
-        ]),
         new webpack.HotModuleReplacementPlugin(),
     ],
     resolve: {

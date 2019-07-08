@@ -6,19 +6,7 @@ html, body {
 }
 
 body {
-    cursor: none;
     background-color: #0d2351;
 
     color: var(--mainTextColor);
-}
-
-.b-cursor-custom {
-    z-index: 10000;
-    height: 10px;
-    width: 10px;
-    border-radius: 20px;
-    background-color: blue;
-    position: absolute;
-    display: flex;
-    justify-content: center;
 }
